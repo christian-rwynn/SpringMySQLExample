@@ -19,10 +19,10 @@ import java.util.Random;
 public class Application implements CommandLineRunner {
 	private static final Logger log = LoggerFactory.getLogger(Application.class);
 
-	private final ISchoolService schoolService;
+	private final IGenericService<School> schoolService;
 	private final IStudentService studentService;
 
-	public Application(ISchoolService schoolService, IStudentService studentService) {
+	public Application(IGenericService<School> schoolService, IStudentService studentService) {
 		this.schoolService = schoolService;
 		this.studentService = studentService;
 	}
@@ -53,7 +53,7 @@ public class Application implements CommandLineRunner {
 			Arrays.asList(
 				new Student("Mitch", "Christian"),
 				new Student("Gersion", "Christian"),
-				new Student("Wintje", "Christian"),
+				new Student("Wintje", "Chesheron"),
 				new Student("Mersion", "Mikaelson"),
 				new Student("Eagle", "Birdhouse")
 			)
@@ -67,5 +67,11 @@ public class Application implements CommandLineRunner {
 
 		log.info("...Saving students...");
 		studentService.saveAll(students);
+
+		log.info("...Performing a search...");
+		List<Student> studentsList = studentService.search("christian");
+		studentsList.forEach(x ->{
+			System.out.println(x.toString());
+		});
 	}
 }

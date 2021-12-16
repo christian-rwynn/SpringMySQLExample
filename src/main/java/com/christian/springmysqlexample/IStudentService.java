@@ -2,8 +2,6 @@ package com.christian.springmysqlexample;
 
 import java.util.List;
 
-public interface IStudentService {
-    List<Student> findAll();
-    void save(Student student);
-    void saveAll(Iterable<Student> students);
+public interface IStudentService extends IGenericService<Student>{
+    List<Student> search(String filterText);
 }

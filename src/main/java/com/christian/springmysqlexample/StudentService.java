@@ -27,4 +27,9 @@ public class StudentService implements IStudentService {
     public void saveAll(Iterable<Student> students) {
         studentRepository.saveAll(students);
     }
+
+    @Override
+    public List<Student> search(String filterText) {
+        return studentRepository.search(filterText);
+    }
 }

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class SchoolService implements ISchoolService{
+public class SchoolService implements IGenericService<School>{
     private final ISchoolRepository repository;
 
     public SchoolService(ISchoolRepository repository) {
