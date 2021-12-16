@@ -22,4 +22,9 @@ public class SchoolService implements ISchoolService{
     public void save(School school) {
         repository.save(school);
     }
+
+    @Override
+    public void saveAll(Iterable<School> schools) {
+        repository.saveAll(schools);
+    }
 }

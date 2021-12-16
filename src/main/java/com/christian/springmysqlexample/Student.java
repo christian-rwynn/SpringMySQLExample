@@ -23,6 +23,20 @@ public class Student extends AbstractEntity implements Serializable {
     @JoinColumn(name = "school_id")
     public School school;
 
+    public Student(String firstName, String lastName, School school) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.school = school;
+    }
+
+    public Student(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public Student() {
+    }
+
     public School getSchool() {
         return school;
     }
